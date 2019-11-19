@@ -6,3 +6,4 @@ tools is below.
 ## Included tools
 * AWS CLI
 * Terraform
+* Terragrunt
