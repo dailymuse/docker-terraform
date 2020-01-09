@@ -1,4 +1,4 @@
-FROM hashicorp/terraform:0.12.9
+FROM hashicorp/terraform:0.12.19
 
 LABEL maintainer="The Muse"
 
@@ -20,7 +20,7 @@ RUN set -eux && \
 
 # Install terragrunt
 
-ENV TERRAGRUNT_VERSION 0.19.11
+ENV TERRAGRUNT_VERSION 0.21.10
 
 RUN set -eux && \
     wget -O /usr/bin/terragrunt \
