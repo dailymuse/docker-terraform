@@ -1,4 +1,4 @@
-FROM hashicorp/terraform:0.12.19
+FROM hashicorp/terraform:0.12.24
 
 LABEL maintainer="The Muse"
 
@@ -7,7 +7,7 @@ LABEL maintainer="The Muse"
 # See https://github.com/aws/aws-cli/issues/1957 to understand why groff & less are needed
 RUN apk add --no-cache python groff less
 
-ENV AWS_CLI_VERSION 1.16.206
+ENV AWS_CLI_VERSION 1.18.45
 
 RUN set -eux && \
     apk add --no-cache --virtual py-deps \
@@ -20,7 +20,7 @@ RUN set -eux && \
 
 # Install terragrunt
 
-ENV TERRAGRUNT_VERSION 0.21.10
+ENV TERRAGRUNT_VERSION 0.23.10
 
 RUN set -eux && \
     wget -O /usr/bin/terragrunt \
