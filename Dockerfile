@@ -28,6 +28,19 @@ RUN set -eux && \
     chmod +x /usr/bin/terragrunt && \
     terragrunt --version
 
+# Plugin setup
+RUN mkdir -p $HOME/.terraform.d/plugins
+
+# Install Kafka provider
+
+ENV KAFKA_PROVIDER_VERSION 0.2.4
+
+RUN set -eux && \
+    mkdir -p /tmp/kafka && \
+    wget -O /tmp/kafka/provider.tar.gz \
+      https://github.com/Mongey/terraform-provider-kafka/releases/download/v${KAFKA_PROVIDER_VERSION}/terraform-provider-kafka_${KAFKA_PROVIDER_VERSION}_linux_amd64.tar.gz && \
+    tar xzf /tmp/kafka/provider.tar.gz -C $HOME/.terraform.d/plugins && \
+    rm -rf /tmp/kafka
 
 # Change entrypoint to shell, since terraform is already in PATH. No reason
 # to limit ourselves to terraform commands.
