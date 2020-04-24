@@ -17,12 +17,12 @@ jobs:
                 echo "$DOCKERHUB_PASSWORD" | docker login -u $DOCKERHUB_USERNAME --password-stdin
                 docker push themuse/terraform:latest
 
-                # Also tag by sha
+                # Also tag by shas
                 docker tag themuse/terraform:latest themuse/terraform:$CIRCLE_SHA1
                 docker push themuse/terraform:$CIRCLE_SHA1
 
                 # Finally, tag by version (<themuse version>-<terraform version>)
-                version=1.1.0-0.12.24
+                version=1.2.0-0.12.24
                 docker tag themuse/terraform:latest themuse/terraform:$version
                 docker push themuse/terraform:$version
             fi
