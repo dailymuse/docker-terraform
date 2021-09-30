@@ -22,7 +22,7 @@ jobs:
                 docker push themuse/terraform:$CIRCLE_SHA1
 
                 # Finally, tag by version (<themuse version>-<terraform version>)
-                version=1.2.0-0.12.24
+                version=1.2.0-0.12.29
                 docker tag themuse/terraform:latest themuse/terraform:$version
                 docker push themuse/terraform:$version
             fi
